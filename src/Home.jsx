@@ -103,7 +103,7 @@ function Home() {
             </h2>
           </div>
           <p className="mt-3 lg:mt-5 text-gray-500">
-            This is an Institution level Rankings Leaderboard for <br />
+            This is an institute level rankings leaderboard for <br />
             <b>Google GenAI Study Jams 2024</b> of <b>GDGC AIKTC</b>
           </p>
         </div>
@@ -243,7 +243,7 @@ function Home() {
                               </p>
                             </div>
                           </td>
-                          <td className="px-4 py-4 text-sm font-medium">
+                          <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
                             {
                               row["Profile URL Status"] === "All Good" ? (
                                 <div className="inline px-3 py-1 text-sm font-normal rounded-full text-green-500 bg-green-100/60">
