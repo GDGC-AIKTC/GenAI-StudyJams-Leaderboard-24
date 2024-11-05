@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "homepage": "https://GDGC-AIKTC.github.io/GenAI-StudyJams-Leaderboard-24",
+  "homepage": "https://gdgc-aiktc.github.io/genai-leaderboard",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
