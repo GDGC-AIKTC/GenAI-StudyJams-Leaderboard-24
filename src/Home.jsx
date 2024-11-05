@@ -66,8 +66,8 @@ function Home() {
 
   const filteredData = leaderboardData.filter((row) => {
     return (
-      row["User Name"].toLowerCase().includes(searchQuery.toLowerCase()) ||
-      row["User Email"].toLowerCase().includes(searchQuery.toLowerCase())
+      row["User Name"]?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      row["User Email"]?.toLowerCase().includes(searchQuery.toLowerCase())
     );
   });
 
@@ -102,7 +102,7 @@ function Home() {
               2024
             </h2>
           </div>
-          <p className="mt-3 lg:mt-5 text-gray-500">
+          <p className="mt-3 lg:mt-5 text-gray-500 text-lg">
             This is an institute level rankings leaderboard for <br />
             <b>Google GenAI Study Jams 2024</b> of <b>GDGC AIKTC</b>
           </p>
