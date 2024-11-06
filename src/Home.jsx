@@ -5,32 +5,6 @@ import "./home.css";
 import Logo from "./assets/logo.svg";
 
 function Home() {
-  function getWidthClassName(percentage) {
-    const roundedPercentage = Math.round(percentage);
-
-    if (roundedPercentage >= 90) {
-      return "w-full";
-    } else if (roundedPercentage >= 80) {
-      return "w-11/12";
-    } else if (roundedPercentage >= 70) {
-      return "w-10/12";
-    } else if (roundedPercentage >= 60) {
-      return "w-9/12";
-    } else if (roundedPercentage >= 50) {
-      return "w-8/12";
-    } else if (roundedPercentage >= 40) {
-      return "w-7/12";
-    } else if (roundedPercentage >= 30) {
-      return "w-6/12";
-    } else if (roundedPercentage >= 20) {
-      return "w-5/12";
-    } else if (roundedPercentage >= 10) {
-      return "w-4/12";
-    } else {
-      return "w-0";
-    }
-  }
-
   const [leaderboardData, setLeaderboardData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -197,9 +171,9 @@ function Home() {
           </form>
         </div>
       </div>
-      <section className="px-4 ml-6 my-2 lg:mx-4 lg:my-0 lg:overflow-hidden overflow-x-auto pattern">
+      <section className="px-4 pl-10 my-2 lg:px-4 lg:my-0 lg:overflow-hidden overflow-x-auto pattern">
         <div className="flex flex-col mb-6">
-          <div className="-mx-4 -my-2 sm:-mx-6 lg:-mx-8 ">
+          <div className="-mx-4 sm:-mx-6 lg:-mx-8 ">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8 mr-6 lg:mr-0">
               <div className="overflow-hidden border border-gray-200 rounded-md">
                 <table className="table-fixed divide-y divide-gray-200">
@@ -241,75 +215,78 @@ function Home() {
                     ) : (
                       filteredData.map((row, index) => (
                         <tr key={index}>
-                          <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                          <td className="px-4 py-4 text-md font-medium whitespace-nowrap">
                             <div>
                               <h2 className="font-medium text-gray-800">
                                 {row["User Name"]}
                               </h2>
-                              <p className="text-sm font-normal text-gray-600">
+                              <p className="font-normal text-gray-600">
                                 {row["User Email"]}
                               </p>
                             </div>
                           </td>
-                          <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                          <td className="px-4 py-4 text-md font-medium whitespace-nowrap">
                             {
                               row["Profile URL Status"] === "All Good" ? (
-                                <div className="inline px-3 py-1 text-sm font-normal rounded-full text-green-500 bg-green-100/60">
+                                <div className="inline px-3 py-1 font-normal rounded-full text-green-500 bg-green-100/60">
                                   {row["Profile URL Status"]}
                                 </div>
                               ) : (
-                                <div className="inline px-3 py-1 text-sm font-normal rounded-full text-red-500 bg-red-100/60 text-center">
+                                <div className="inline px-3 py-1 font-normal rounded-full text-red-500 bg-red-100/60 text-center">
                                   Wrong URL
                                 </div>
                               )
                             }
                           </td>
-                          <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                          <td className="px-4 py-4 text-md font-medium whitespace-nowrap">
                             {
                               row["Access Code Redemption Status"] === "Yes" ? (
-                                <div className="inline px-3 py-1 text-sm font-normal rounded-full text-green-500 bg-green-100/60">
+                                <div className="inline px-3 py-1 font-normal rounded-full text-green-500 bg-green-100/60">
                                   {row["Access Code Redemption Status"]}
                                 </div>
                               ) : (
-                                <div className="inline px-3 py-1 text-sm font-normal rounded-full text-red-500 bg-red-100/60">
+                                <div className="inline px-3 py-1 font-normal rounded-full text-red-500 bg-red-100/60">
                                   {row["Access Code Redemption Status"]}
                                 </div>
                               )
                             }
                           </td>
-                          <td className="px-4 py-4 text-sm whitespace-nowrap">
+                          <td className="px-4 py-4 text-md whitespace-nowrap">
                             {
                               row["All Skill Badges & Games Completed"] === "Yes" ? (
-                                <div className="inline px-3 py-1 text-sm font-normal rounded-full text-green-500 bg-green-100/60">
+                                <div className="inline px-3 py-1 font-normal rounded-full text-green-500 bg-green-100/60">
                                   {row["All Skill Badges & Games Completed"]}
                                 </div>
                               ) : (
-                                <div className="inline px-3 py-1 text-sm font-normal rounded-full text-red-500 bg-red-100/60">
+                                <div className="inline px-3 py-1 font-normal rounded-full text-red-500 bg-red-100/60">
                                   {row["All Skill Badges & Games Completed"]}
                                 </div>
                               )
                             }
                           </td>
-                          <td className="px-4 py-4 text-sm whitespace-nowrap">
+                          <td className="px-4 py-4 text-md whitespace-nowrap">
                             <div>
                               <h4 className="text-gray-700">
                                 {row["# of Skill Badges Completed"]}
                               </h4>
                             </div>
                           </td>
-                          <td className="px-4 py-4 text-sm whitespace-nowrap">
+                          <td className="px-4 py-4 whitespace-nowrap">
                             <div>
                               <h4 className="text-gray-700">
                                 {row["# of Arcade Games Completed"]}
                               </h4>
                             </div>
                           </td>
-                          <td className="px-4 py-4 text-sm whitespace-nowrap">
+                          <td className="px-4 py-4 text-md whitespace-nowrap">
                             <div className="w-full h-1.5 bg-blue-200 overflow-hidden rounded-full">
-                              <div className={`bg-blue-500 h-1.5 ${getWidthClassName(row["percentage"])}`}></div>
+                              <div
+                                className="bg-blue-500 h-1.5"
+                                style={{ width: `${row["percentage"]}%` }} // Use inline style for dynamic width
+                              ></div>
                             </div>
                           </td>
-                          <td className="px-4 py-4 text-sm whitespace-nowrap">
+                          <td className="px-4 py-4 text-md font-bold whitespace-nowrap">
                             <div>
                               <h4 className="text-gray-700 pl-2">{row["rank"]}</h4>
                             </div>
