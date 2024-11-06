@@ -27,7 +27,7 @@ function Home() {
     } else if (roundedPercentage >= 10) {
       return "w-4/12";
     } else {
-      return "w-3/12";
+      return "w-0";
     }
   }
 
@@ -60,6 +60,11 @@ function Home() {
         });
 
         setLeaderboardData(data);
+
+        // remove the last row if it is empty
+        if (data[data.length - 1]["User Name"] === "") {
+          data.pop();
+        }
       },
     });
   }, []);
@@ -90,7 +95,7 @@ function Home() {
           <h1 className="text-2xl text-gray-500 lg:text-4xl">Welcome to</h1>
           <div className="flex justify-center items-center whitespace-nowrap mt-1 lg:mt-2">
             <h2 className="lg:mr-4 mr-2 lg:text-7xl text-3xl font-bold text-red-500 inline-block">
-              Gen-AI
+              GenAI
             </h2>
             <h2 className="lg:mr-4 mr-2 lg:text-7xl text-3xl font-bold text-blue-600 inline-block">
               Study
@@ -102,14 +107,17 @@ function Home() {
               2024
             </h2>
           </div>
-          <p className="mt-3 lg:mt-5 text-gray-500 text-lg">
+          <p className="mt-3 lg:mt-5 text-gray-500 text-xl">
             This is an institute level rankings leaderboard for <br />
-            <b>Google GenAI Study Jams 2024</b> of <b>GDGC AIKTC</b>
+            <b>Google GenAI Study Jams 2024</b> of <b>GDGC AIKTC</b> <br />
+            <p className="text-gray-500 text-lg">
+              Updated as of <span className="underline">5th November 2024</span>
+            </p>
           </p>
         </div>
         <div className="container mx-auto">
           <div className="flex flex-wrap justify-center text-center">
-            <a href="#" className="group relative w-full lg:w-1/5 m-4 ">
+            <a href="#" className="group relative w-full lg:w-1/5 mx-0 my-4 lg:m-4 ">
               <span className="p-5 absolute inset-0 border-2 border-dashed border-yellow-500 rounded-md"></span>
               <div className="p-5 relative flex transform items-center justify-center border-2 border-yellow-500 rounded-md bg-white transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2">
                 <div className=" !pt-0 transition-opacity group-hover:absolute group-hover:opacity-0 ">
@@ -126,7 +134,7 @@ function Home() {
                 </div>
               </div>
             </a>
-            <a href="#" className="group relative w-full lg:w-1/5 m-4 ">
+            <a href="#" className="group relative w-full lg:w-1/5 mx-0 my-4 lg:m-4 ">
               <span className="p-5 absolute inset-0 border-2 border-dashed border-red-600 rounded-md"></span>
               <div className="p-5 relative flex transform items-center justify-center border-2 border-red-600 rounded-md bg-white transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2">
                 <div className=" !pt-0 transition-opacity group-hover:absolute group-hover:opacity-0 ">
@@ -143,7 +151,7 @@ function Home() {
                 </div>
               </div>
             </a>
-            <a href="#" className="group relative w-full lg:w-1/5 m-4 ">
+            <a href="#" className="group relative w-full lg:w-1/5 mx-0 my-4 lg:m-4 ">
               <span className="p-5 absolute inset-0 border-2 border-dashed border-green-500 rounded-md"></span>
               <div className="p-5 relative flex transform items-center justify-center border-2 border-green-500 rounded-md bg-white transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2">
                 <div className="!pt-0 transition-opacity group-hover:absolute group-hover:opacity-0 ">
@@ -162,16 +170,16 @@ function Home() {
             </a>
           </div>
         </div>
-        <div className="w-full max-w-sm mx-auto mt-6 bg-white border rounded-md focus-within:border-blue-400 focus-within:ring focus-within:ring-blue-300 focus-within:ring-opacity-40">
+        <div className="w-full lg:max-w-sm mx-auto mt-4 bg-white border rounded-md focus-within:border-blue-400 focus-within:ring focus-within:ring-blue-300 focus-within:ring-opacity-40">
           <form className="flex flex-row">
             <input
               type="text"
               placeholder="Enter your name or email..."
-              className="flex-1 h-10 px-4 py-2 m-1 text-gray-700 placeholder-gray-400 bg-transparent border-none appearance-none focus:outline-none focus:placeholder-transparent focus:ring-0"
+              className="w-full flex-1 text-lg h-10 px-4 py-2 m-1 text-gray-700 placeholder-gray-400 bg-transparent border-none appearance-none focus:outline-none focus:placeholder-transparent focus:ring-0"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <div className="bg-blue-700 flex justify-center items-center rounded-lg m-1 px-3 ">
+            <div className="bg-blue-700 flex justify-center items-center rounded-md px-3 m-1">
               <svg
                 className="h-5 w-5 text-white"
                 viewBox="0 0 24 24"
@@ -189,11 +197,11 @@ function Home() {
           </form>
         </div>
       </div>
-      <section className="px-4 mx-2 lg:overflow-hidden overflow-x-auto pattern">
+      <section className="px-4 ml-6 my-2 lg:mx-4 lg:my-0 lg:overflow-hidden overflow-x-auto pattern">
         <div className="flex flex-col mb-6">
-          <div className="-mx-4 -my-2 sm:-mx-6 lg:-mx-8">
-            <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-              <div className="overflow-hidden border border-gray-200 md:rounded-lg">
+          <div className="-mx-4 -my-2 sm:-mx-6 lg:-mx-8 ">
+            <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8 mr-6 lg:mr-0">
+              <div className="overflow-hidden border border-gray-200 rounded-md">
                 <table className="table-fixed divide-y divide-gray-200">
                   <thead className="bg-gray-50">
                     <tr>
