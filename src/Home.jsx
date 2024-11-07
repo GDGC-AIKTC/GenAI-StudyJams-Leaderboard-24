@@ -16,7 +16,7 @@ function Home() {
         const data = result.data.map((row) => {
           const badgesCompleted = parseInt(row["# of Skill Badges Completed"], 10);
           const gamesCompleted = parseInt(row["# of Arcade Games Completed"], 10);
-          const totalItems = 15 + 8;
+          const totalItems = 16;
           const percentage = ((badgesCompleted + gamesCompleted) / totalItems) * 100;
 
           return {
@@ -35,7 +35,6 @@ function Home() {
 
         setLeaderboardData(data);
 
-        // remove the last row if it is empty
         if (data[data.length - 1]["User Name"] === "") {
           data.pop();
         }
@@ -85,7 +84,7 @@ function Home() {
             This is an institute level rankings leaderboard for <br />
             <b>Google GenAI Study Jams 2024</b> of <b>GDGC AIKTC</b> <br />
             <p className="text-gray-500 text-lg">
-              Updated as of <span className="underline">5th November 2024</span>
+              Updated as of <span className="underline">6th November 2024</span>
             </p>
           </p>
         </div>
@@ -195,7 +194,7 @@ function Home() {
                         No. of Skill Badges Completed
                       </th>
                       <th scope="col" className="w-1/8 px-4 py-3.5 font-semibold text-left rtl:text-right text-gray-500">
-                        No. of Arcade Games Completed
+                        Arcade Game Completed?
                       </th>
                       <th scope="col" className="w-1/8 px-4 py-3.5 font-semibold text-left rtl:text-right text-gray-500">
                         Completion Status
@@ -205,10 +204,10 @@ function Home() {
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
+                  <tbody className="bg-white divide-y divide-gray-200 w-full">
                     {filteredData.length === 0 ? (
                       <tr>
-                        <td colSpan="8" className="text-center py-4 text-gray-500">
+                        <td colSpan="8" className="text-center text-lg py-4 text-gray-500 w-screen">
                           Kindly check your name / email & try again
                         </td>
                       </tr>
@@ -274,7 +273,17 @@ function Home() {
                           <td className="px-4 py-4 whitespace-nowrap">
                             <div>
                               <h4 className="text-gray-700">
-                                {row["# of Arcade Games Completed"]}
+                                {
+                                  row["# of Arcade Games Completed"] === "0" ? (
+                                    <div className="inline px-3 py-1 font-normal rounded-full text-red-500 bg-red-100/60">
+                                      No
+                                    </div>
+                                  ) : (
+                                    <div className="inline px-3 py-1 font-normal rounded-full text-green-500 bg-green-100/60">
+                                      Yes
+                                    </div>
+                                  )
+                                }
                               </h4>
                             </div>
                           </td>
@@ -282,7 +291,7 @@ function Home() {
                             <div className="w-full h-1.5 bg-blue-200 overflow-hidden rounded-full">
                               <div
                                 className="bg-blue-500 h-1.5"
-                                style={{ width: `${row["percentage"]}%` }} // Use inline style for dynamic width
+                                style={{ width: `${row["percentage"]}%` }}
                               ></div>
                             </div>
                           </td>
