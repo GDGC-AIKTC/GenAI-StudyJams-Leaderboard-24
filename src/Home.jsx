@@ -84,8 +84,11 @@ function Home() {
             This is an institute level rankings leaderboard for <br />
             <b>Google GenAI Study Jams 2024</b> of <b>GDGC AIKTC</b> <br />
             <p className="text-gray-500 text-lg">
-              Updated as of <span className="underline">6th November 2024</span>
+              Updated as of <span className="underline">7th November 2024</span>
             </p>
+          </p>
+          <p className="mt-3 lg:mt-5 text-gray-500 text-xl">
+            Follow <a target="_blank" className="underline font-bold" href="https://studyjams.netlify.app/">this</a> link for tutorials on how to complete the labs
           </p>
         </div>
         <div className="container mx-auto">
@@ -129,13 +132,13 @@ function Home() {
               <div className="p-5 relative flex transform items-center justify-center border-2 border-green-500 rounded-md bg-white transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2">
                 <div className="!pt-0 transition-opacity group-hover:absolute group-hover:opacity-0 ">
                   <h2 className="title-font font-medium text-3xl text-green-500">
-                    0
+                    1
                   </h2>
                   <p className="leading-relaxed">Participants Qualified</p>
                 </div>
                 <div className="absolute opacity-0 transition-opacity group-hover:relative group-hover:opacity-100">
                   <h2 className="title-font font-medium text-3xl text-green-500">
-                    0
+                    1
                   </h2>
                   <p className="leading-relaxed">Participants Qualified</p>
                 </div>
