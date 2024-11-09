@@ -1,1 +1,1 @@
-# Gen-AI StudyJams Leaderboard 24
+# GenAI StudyJams Leaderboard 24
