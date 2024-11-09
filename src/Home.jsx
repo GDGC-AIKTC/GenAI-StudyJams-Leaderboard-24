@@ -84,7 +84,7 @@ function Home() {
             This is an institute level rankings leaderboard for <br />
             <b>Google GenAI Study Jams 2024</b> of <b>GDGC AIKTC</b> <br />
             <p className="text-gray-500 text-lg">
-              Updated as of <span className="underline">7th November 2024</span>
+              Updated as of <span className="underline">8th November 2024</span>
             </p>
           </p>
           <p className="mt-3 lg:mt-5 text-gray-500 text-xl">
@@ -132,13 +132,13 @@ function Home() {
               <div className="p-5 relative flex transform items-center justify-center border-2 border-green-500 rounded-md bg-white transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2">
                 <div className="!pt-0 transition-opacity group-hover:absolute group-hover:opacity-0 ">
                   <h2 className="title-font font-medium text-3xl text-green-500">
-                    1
+                    2
                   </h2>
                   <p className="leading-relaxed">Participants Qualified</p>
                 </div>
                 <div className="absolute opacity-0 transition-opacity group-hover:relative group-hover:opacity-100">
                   <h2 className="title-font font-medium text-3xl text-green-500">
-                    1
+                    2
                   </h2>
                   <p className="leading-relaxed">Participants Qualified</p>
                 </div>
@@ -181,29 +181,26 @@ function Home() {
                 <table className="table-fixed divide-y divide-gray-200">
                   <thead className="bg-gray-50">
                     <tr>
+                      <th scope="col" className="w-1/8 px-4 py-3.5 font-semibold text-left rtl:text-right text-gray-500">
+                        Rank
+                      </th>
                       <th scope="col" className="w-1/8 py-3.5 px-4 font-semibold text-left rtl:text-right text-gray-500">
                         Name & Email
-                      </th>
-                      <th scope="col" className="w-1/8 px-4 py-3.5 font-semibold text-left rtl:text-right text-gray-500">
-                        Profile URL Status
                       </th>
                       <th scope="col" className="w-1/8 px-4 py-3.5 font-semibold text-left rtl:text-right text-gray-500">
                         Access Code Redemption Status
                       </th>
                       <th scope="col" className="w-1/8 px-4 py-3.5 font-semibold text-left rtl:text-right text-gray-500">
-                        All Skill Badges & Games Completed?
+                        Eligible for Rewards?
                       </th>
                       <th scope="col" className="w-1/8 px-4 py-3.5 font-semibold text-left rtl:text-right text-gray-500">
                         No. of Skill Badges Completed
                       </th>
                       <th scope="col" className="w-1/8 px-4 py-3.5 font-semibold text-left rtl:text-right text-gray-500">
-                        Arcade Game Completed?
+                        All Arcade Game Completed?
                       </th>
                       <th scope="col" className="w-1/8 px-4 py-3.5 font-semibold text-left rtl:text-right text-gray-500">
                         Completion Status
-                      </th>
-                      <th scope="col" className="w-1/8 px-4 py-3.5 font-semibold text-left rtl:text-right text-gray-500">
-                        Rank
                       </th>
                     </tr>
                   </thead>
@@ -217,6 +214,11 @@ function Home() {
                     ) : (
                       filteredData.map((row, index) => (
                         <tr key={index}>
+                          <td className="px-4 py-4 text-md font-bold whitespace-nowrap">
+                            <div>
+                              <h4 className="text-gray-700 pl-2">{row["rank"]}</h4>
+                            </div>
+                          </td>
                           <td className="px-4 py-4 text-md font-medium whitespace-nowrap">
                             <div>
                               <h2 className="font-medium text-gray-800">
@@ -226,19 +228,6 @@ function Home() {
                                 {row["User Email"]}
                               </p>
                             </div>
-                          </td>
-                          <td className="px-4 py-4 text-md font-medium whitespace-nowrap">
-                            {
-                              row["Profile URL Status"] === "All Good" ? (
-                                <div className="inline px-3 py-1 font-normal rounded-full text-green-500 bg-green-100/60">
-                                  {row["Profile URL Status"]}
-                                </div>
-                              ) : (
-                                <div className="inline px-3 py-1 font-normal rounded-full text-red-500 bg-red-100/60 text-center">
-                                  Wrong URL
-                                </div>
-                              )
-                            }
                           </td>
                           <td className="px-4 py-4 text-md font-medium whitespace-nowrap">
                             {
@@ -296,11 +285,6 @@ function Home() {
                                 className="bg-blue-500 h-1.5"
                                 style={{ width: `${row["percentage"]}%` }}
                               ></div>
-                            </div>
-                          </td>
-                          <td className="px-4 py-4 text-md font-bold whitespace-nowrap">
-                            <div>
-                              <h4 className="text-gray-700 pl-2">{row["rank"]}</h4>
                             </div>
                           </td>
                         </tr>
