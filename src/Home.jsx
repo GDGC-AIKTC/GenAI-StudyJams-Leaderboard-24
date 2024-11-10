@@ -7,6 +7,7 @@ import Logo from "./assets/logo.svg";
 function Home() {
   const [leaderboardData, setLeaderboardData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [totalCompleted, setTotalCompleted] = useState(0);
 
   useEffect(() => {
     Papa.parse("./leaderboard.csv", {
@@ -28,9 +29,14 @@ function Home() {
           };
         });
 
+        setTotalCompleted(0);
         data.sort((a, b) => b.percentage - a.percentage);
         data.forEach((row, index) => {
           row.rank = index + 1;
+
+          if (row["All Skill Badges & Games Completed"] === "Yes") {
+            setTotalCompleted((prev) => prev + 1);
+          }
         });
 
         setLeaderboardData(data);
@@ -84,7 +90,7 @@ function Home() {
             This is an institute level rankings leaderboard for <br />
             <b>Google GenAI Study Jams 2024</b> of <b>GDGC AIKTC</b> <br />
             <p className="text-gray-500 text-lg">
-              Updated as of <span className="underline">8th November 2024</span>
+              Updated as of <span className="underline">9th November 2024</span>
             </p>
           </p>
           <p className="mt-3 lg:mt-5 text-gray-500 text-xl">
@@ -132,13 +138,13 @@ function Home() {
               <div className="p-5 relative flex transform items-center justify-center border-2 border-green-500 rounded-md bg-white transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2">
                 <div className="!pt-0 transition-opacity group-hover:absolute group-hover:opacity-0 ">
                   <h2 className="title-font font-medium text-3xl text-green-500">
-                    2
+                    {totalCompleted}
                   </h2>
                   <p className="leading-relaxed">Participants Qualified</p>
                 </div>
                 <div className="absolute opacity-0 transition-opacity group-hover:relative group-hover:opacity-100">
                   <h2 className="title-font font-medium text-3xl text-green-500">
-                    2
+                    {totalCompleted}
                   </h2>
                   <p className="leading-relaxed">Participants Qualified</p>
                 </div>
