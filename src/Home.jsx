@@ -44,26 +44,6 @@ function Home() {
         if (data[data.length - 1]["User Name"] === "") {
           data.pop();
         }
-
-        let rank = 1;
-        let position = 0;
-        for (let i = 0; i < data.length; i++) {
-          position++;
-          data[i].position = position;
-          if (i === 0) {
-            data[i].rank = rank;
-          } else {
-            if (data[i].percentage === data[i - 1].percentage) {
-              data[i].rank = rank;
-            } else {
-              rank++;
-              data[i].rank = rank;
-            }
-          }
-          if (data[i].percentage === 0) {
-            rank++;
-          }
-        }
       },
     });
   }, []);
@@ -110,7 +90,7 @@ function Home() {
             This is an institute level rankings leaderboard for <br />
             <b>Google GenAI Study Jams 2024</b> of <b>GDGC AIKTC</b> <br />
             <p className="text-gray-500 text-lg">
-              Updated as of <span className="underline">10th November 2024</span>
+              Updated as of <span className="underline">12th November 2024</span>
             </p>
           </p>
           <p className="mt-3 lg:mt-5 text-gray-500 text-xl">
@@ -208,9 +188,6 @@ function Home() {
                   <thead className="bg-gray-50">
                     <tr>
                       <th scope="col" className="w-1/8 px-4 py-3.5 font-semibold text-left rtl:text-right text-gray-500">
-                        Sr No.
-                      </th>
-                      <th scope="col" className="w-1/8 px-4 py-3.5 font-semibold text-left rtl:text-right text-gray-500">
                         Rank
                       </th>
                       <th scope="col" className="w-1/8 py-3.5 px-4 font-semibold text-left rtl:text-right text-gray-500">
@@ -243,11 +220,6 @@ function Home() {
                     ) : (
                       filteredData.map((row, index) => (
                         <tr key={index}>
-                          <td className="px-4 py-4 text-md whitespace-nowrap">
-                            <div>
-                              <h4 className="text-gray-700 pl-2">{row["position"]}</h4>
-                            </div>
-                          </td>
                           <td className="px-4 py-4 text-md font-bold whitespace-nowrap">
                             <div>
                               <h4 className="text-gray-700 pl-2">{row["rank"]}</h4>
