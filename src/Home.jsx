@@ -90,7 +90,7 @@ function Home() {
             This is an institute level rankings leaderboard for <br />
             <b>Google GenAI Study Jams 2024</b> of <b>GDGC AIKTC</b> <br />
             <p className="text-gray-500 text-lg">
-              Updated as of <span className="underline">12th November 2024</span>
+              Updated as of <span className="underline">13th November 2024</span>
             </p>
           </p>
           <p className="mt-3 lg:mt-5 text-gray-500 text-xl">
